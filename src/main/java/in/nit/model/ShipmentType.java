@@ -14,22 +14,22 @@ import lombok.Data;
 public class ShipmentType {
 	@Id
 	@GeneratedValue
-	@Column(name="ship_id_col")
+	@Column(name="ship_id_col" ,length=5)
 	private Integer id;
 	
-	@Column(name="ship_mode_col")
+	@Column(name="ship_mode_col",length=20)
 	private String shipmentMode;
 	
-	@Column(name="ship_code_col")
+	@Column(name="ship_code_col",length=5)
 	private String shipmentCode;
 	
-	@Column(name="enab_ship_col")
+	@Column(name="enab_ship_col",length=5)
 	private String enableShipment;
 	
-	@Column(name="ship_grade_col")
+	@Column(name="ship_grade_col",length=3)
 	private String shipmentGrade;
 	
-	@Column(name="ship_desc_col")
+	@Column(name="ship_desc_col",length=50)
 	private String description;
 	
 

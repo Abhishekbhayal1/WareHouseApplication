@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-primary text-whit text-center">
+            <h3>Welcome To Shipment Type Edit Page</h3>
+        </div>
+
+        <div class="card-body">
+            <form th:action="@{/shipmenttype/update}" method="POST" th:object="${shipmentType}">
+               <input type="hidden" th:field="*{id}"readonly="readonly">
+                <!-- row =1 -->
+                <div class="row">
+                    <div class="col-4">
+                        <label for="shipmentMode">Shipment Mode</label>
+                    </div>
+
+                    <div class="col-4">
+                        <select th:field="*{shipmentMode}" class="form-control">
+                            <option value="">-select--</option>
+                            <option value="Air">Air</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Ship">Ship</option>
+                            <option value="Train">Train</option>
+                        </select>
+                    </div>
+
+                    <div class="col-4">
+                        <span id="shipmentModeError"></span>
+                    </div>
+                </div>
+
+                <!-- row =2 -->
+                <div class="row">
+                    <div class="col-4">
+                        <label for="shipmentCode">Shipment Code</label>
+                    </div>
+
+                    <div class="col-4">
+                        <input type="text" th:field="*{shipmentCode}" class="form-control">
+                    </div>
+
+                    <div class="col-4">
+                        <span id="shipmentCodeError"></span>
+                    </div>
+                </div>
+
+                <!-- row =3 -->
+                <div class="row">
+                    <div class="col-4">
+                        <label for="enableShipment">Enable Shipment:</label>
+                    </div>
+
+                    <div class="col-4">
+                        <select name="enableShipment" class="form-control">
+                            <option value="">-select--</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="col-4">
+                        <span id="enableShipmentError"></span>
+                    </div>
+                </div>
+
+                <!-- row =4 -->
+                <div class="row">
+                    <div class="col-4">
+                        <label for="shipmentGrade"> Shipment Grade:</label>
+                    </div>
+
+                    <div class="col-4">
+                        <input type="radio" th:field="*{shipmentGrade}" value="A"/>A
+                        <input type="radio" th:field="*{shipmentGrade}" value="B"/>B
+                        <input type="radio" th:field="*{shipmentGrade}" value="C"/>C
+                    </div>
+
+                    <div class="col-4">
+                        <span id="shipmentGradeError"></span>
+                    </div>
+                </div>
+
+                <!-- row =5 -->
+                <div class="row">
+                    <div class="col-4">
+                        <label for="description">Description</label>
+                    </div>
+
+                    <div class="col-4">
+                        <textarea th:field="*{description}"></textarea>
+                        <input type="submit" value="Create Shipment" class="btn btn-success"/>
+                    </div>
+
+                    <div class="col-4">
+                        <span id="descriptionError"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+       
+    </div><!--Card end-->
+</div> <!--container end -->
+
+</body>
+
+</html>
